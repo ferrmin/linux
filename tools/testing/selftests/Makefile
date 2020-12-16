@@ -1,6 +1,5 @@
 # SPDX-License-Identifier: GPL-2.0
-TARGETS = android
-TARGETS += arm64
+TARGETS = arm64
 TARGETS += bpf
 TARGETS += breakpoints
 TARGETS += capabilities
@@ -57,6 +56,7 @@ TARGETS += sparc64
 TARGETS += splice
 TARGETS += static_keys
 TARGETS += sync
+TARGETS += syscall_user_dispatch
 TARGETS += sysctl
 TARGETS += tc-testing
 TARGETS += timens
