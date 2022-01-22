@@ -16807,6 +16807,7 @@ M:	Heiko Carstens <hca@linux.ibm.com>
 M:	Vasily Gorbik <gor@linux.ibm.com>
 M:	Christian Borntraeger <borntraeger@linux.ibm.com>
 R:	Alexander Gordeev <agordeev@linux.ibm.com>
+R:	Sven Schnelle <svens@linux.ibm.com>
 L:	linux-s390@vger.kernel.org
 S:	Supported
 W:	http://www.ibm.com/developerworks/linux/linux390/
@@ -18489,6 +18490,13 @@ M:	Denis Kirjanov <kda@linux-powerpc.org>
 L:	netdev@vger.kernel.org
 S:	Maintained
 F:	drivers/net/ethernet/dlink/sundance.c
+
+SUNPLUS RTC DRIVER
+M:	Vincent Shih <vincent.sunplus@gmail.com>
+L:	linux-rtc@vger.kernel.org
+S:	Maintained
+F:	Documentation/devicetree/bindings/rtc/sunplus,sp7021-rtc.yaml
+F:	drivers/rtc/rtc-sunplus.c
 
 SUPERH
 M:	Yoshinori Sato <ysato@users.sourceforge.jp>
