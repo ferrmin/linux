@@ -4791,6 +4791,7 @@ F:	.clang-format
 CLANG/LLVM BUILD SUPPORT
 M:	Nathan Chancellor <nathan@kernel.org>
 M:	Nick Desaulniers <ndesaulniers@google.com>
+R:	Tom Rix <trix@redhat.com>
 L:	llvm@lists.linux.dev
 S:	Supported
 W:	https://clangbuiltlinux.github.io/
@@ -8675,7 +8676,6 @@ F:	include/linux/cciss*.h
 F:	include/uapi/linux/cciss*.h
 
 HFI1 DRIVER
-M:	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>
 M:	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>
 L:	linux-rdma@vger.kernel.org
 S:	Supported
@@ -9598,6 +9598,7 @@ F:	drivers/iio/pressure/dps310.c
 
 INFINIBAND SUBSYSTEM
 M:	Jason Gunthorpe <jgg@nvidia.com>
+M:	Leon Romanovsky <leonro@nvidia.com>
 L:	linux-rdma@vger.kernel.org
 S:	Supported
 W:	https://github.com/linux-rdma/rdma-core
@@ -14656,7 +14657,6 @@ F:	drivers/rtc/rtc-optee.c
 
 OPA-VNIC DRIVER
 M:	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>
-M:	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>
 L:	linux-rdma@vger.kernel.org
 S:	Supported
 F:	drivers/infiniband/ulp/opa_vnic
@@ -16098,7 +16098,6 @@ F:	include/uapi/linux/qemu_fw_cfg.h
 
 QIB DRIVER
 M:	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>
-M:	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>
 L:	linux-rdma@vger.kernel.org
 S:	Supported
 F:	drivers/infiniband/hw/qib/
@@ -16616,7 +16615,6 @@ F:	drivers/net/ethernet/rdc/r6040.c
 
 RDMAVT - RDMA verbs software
 M:	Dennis Dalessandro <dennis.dalessandro@cornelisnetworks.com>
-M:	Mike Marciniszyn <mike.marciniszyn@cornelisnetworks.com>
 L:	linux-rdma@vger.kernel.org
 S:	Supported
 F:	drivers/infiniband/sw/rdmavt
