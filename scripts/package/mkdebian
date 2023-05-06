@@ -190,7 +190,7 @@ EOF
 
 # Generate copyright file
 cat <<EOF > debian/copyright
-This is a packacked upstream version of the Linux kernel.
+This is a packaged upstream version of the Linux kernel.
 
 The sources may be found at most Linux archive sites, including:
 https://www.kernel.org/pub/linux/kernel
@@ -268,6 +268,8 @@ cat <<EOF > debian/rules
 
 srctree ?= .
 KERNELRELEASE = ${KERNELRELEASE}
+
+.PHONY: clean build build-arch build-indep binary binary-arch binary-indep
 
 build-indep:
 build-arch:
