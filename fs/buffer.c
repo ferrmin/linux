@@ -111,7 +111,6 @@ void buffer_check_dirty_writeback(struct folio *folio,
 		bh = bh->b_this_page;
 	} while (bh != head);
 }
-EXPORT_SYMBOL(buffer_check_dirty_writeback);
 
 /*
  * Block until a buffer comes unlocked.  This doesn't stop it
@@ -2760,8 +2759,7 @@ static void submit_bh_wbc(blk_opf_t opf, struct buffer_head *bh,
 
 	bio->bi_iter.bi_sector = bh->b_blocknr * (bh->b_size >> 9);
 
-	bio_add_page(bio, bh->b_page, bh->b_size, bh_offset(bh));
-	BUG_ON(bio->bi_iter.bi_size != bh->b_size);
+	__bio_add_page(bio, bh->b_page, bh->b_size, bh_offset(bh));
 
 	bio->bi_end_io = end_bio_bh_io_sync;
 	bio->bi_private = bh;
