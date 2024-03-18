@@ -374,6 +374,11 @@
 			  selects a performance level in this range and appropriate
 			  to the current workload.
 
+	amd_prefcore=
+			[X86]
+			disable
+			  Disable amd-pstate preferred core.
+
 	amijoy.map=	[HW,JOY] Amiga joystick support
 			Map of devices attached to JOY0DAT and JOY1DAT
 			Format: <a>,<b>
@@ -1168,16 +1173,10 @@
 			panels may send no or incorrect EDID data sets.
 			This parameter allows to specify an EDID data sets
 			in the /lib/firmware directory that are used instead.
-			Generic built-in EDID data sets are used, if one of
-			edid/1024x768.bin, edid/1280x1024.bin,
-			edid/1680x1050.bin, or edid/1920x1080.bin is given
-			and no file with the same name exists. Details and
-			instructions how to build your own EDID data are
-			available in Documentation/admin-guide/edid.rst. An EDID
-			data set will only be used for a particular connector,
-			if its name and a colon are prepended to the EDID
-			name. Each connector may use a unique EDID data
-			set by separating the files with a comma.  An EDID
+			An EDID data set will only be used for a particular
+			connector, if its name and a colon are prepended to
+			the EDID name. Each connector may use a unique EDID
+			data set by separating the files with a comma. An EDID
 			data set with no connector name will be used for
 			any connectors not explicitly specified.
 
@@ -1759,6 +1758,17 @@
 		protect_image	Turn on image protection during restoration
 				(that will set all pages holding image data
 				during restoration read-only).
+
+	hibernate.compressor= 	[HIBERNATION] Compression algorithm to be
+				used with hibernation.
+				Format: { lzo | lz4 }
+				Default: lzo
+
+				lzo: Select LZO compression algorithm to
+				compress/decompress hibernation image.
+
+				lz4: Select LZ4 compression algorithm to
+				compress/decompress hibernation image.
 
 	highmem=nn[KMG]	[KNL,BOOT,EARLY] forces the highmem zone to have an exact
 			size of <nn>. This works even on boxes that have no
@@ -4201,6 +4211,7 @@
 			bit 4: print ftrace buffer
 			bit 5: print all printk messages in buffer
 			bit 6: print all CPUs backtrace (if available in the arch)
+			bit 7: print only tasks in uninterruptible (blocked) state
 			*Be aware* that this option may print a _lot_ of lines,
 			so there are risks of losing older messages in the log.
 			Use this option carefully, maybe worth to setup a
