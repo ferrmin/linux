@@ -6063,6 +6063,18 @@
 	sonypi.*=	[HW] Sony Programmable I/O Control Device driver
 			See Documentation/admin-guide/laptops/sonypi.rst
 
+	spectre_bhi=	[X86] Control mitigation of Branch History Injection
+			(BHI) vulnerability. Syscalls are hardened against BHI
+			reglardless of this setting. This setting affects the
+			deployment of the HW BHI control and the SW BHB
+			clearing sequence.
+
+			on   - unconditionally enable.
+			off  - unconditionally disable.
+			auto - (default) enable hardware mitigation
+			       (BHI_DIS_S) if available, otherwise enable
+			       alternate mitigation in KVM.
+
 	spectre_v2=	[X86,EARLY] Control mitigation of Spectre variant 2
 			(indirect branch speculation) vulnerability.
 			The default operation protects the kernel from
@@ -6599,7 +6611,7 @@
 			To turn off having tracepoints sent to printk,
 			 echo 0 > /proc/sys/kernel/tracepoint_printk
 			Note, echoing 1 into this file without the
-			tracepoint_printk kernel cmdline option has no effect.
+			tp_printk kernel cmdline option has no effect.
 
 			The tp_printk_stop_on_boot (see below) can also be used
 			to stop the printing of events to console at
