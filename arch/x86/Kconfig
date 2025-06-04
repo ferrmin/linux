@@ -38,6 +38,7 @@ config X86_64
 	select ARCH_HAS_ELFCORE_COMPAT
 	select ZONE_DMA32
 	select EXECMEM if DYNAMIC_FTRACE
+	select ACPI_MRRM if ACPI
 
 config FORCE_DYNAMIC_FTRACE
 	def_bool y
@@ -507,8 +508,9 @@ config X86_MPPARSE
 config X86_CPU_RESCTRL
 	bool "x86 CPU resource control support"
 	depends on X86 && (CPU_SUP_INTEL || CPU_SUP_AMD)
-	select KERNFS
-	select PROC_CPU_RESCTRL		if PROC_FS
+	depends on MISC_FILESYSTEMS
+	select ARCH_HAS_CPU_RESCTRL
+	select RESCTRL_FS
 	select RESCTRL_FS_PSEUDO_LOCK
 	help
 	  Enable x86 CPU resource control support.
@@ -525,12 +527,6 @@ config X86_CPU_RESCTRL
 	  Platform Quality of Service Extensions manual.
 
 	  Say N if unsure.
-
-config RESCTRL_FS_PSEUDO_LOCK
-	bool
-	help
-	  Software mechanism to pin data in a cache portion using
-	  micro-architecture specific knowledge.
 
 config X86_FRED
 	bool "Flexible Return and Event Delivery"
@@ -1862,8 +1858,7 @@ endchoice
 config X86_SGX
 	bool "Software Guard eXtensions (SGX)"
 	depends on X86_64 && CPU_SUP_INTEL && X86_X2APIC
-	depends on CRYPTO=y
-	depends on CRYPTO_SHA256=y
+	select CRYPTO_LIB_SHA256
 	select MMU_NOTIFIER
 	select NUMA_KEEP_MEMINFO if NUMA
 	select XARRAY_MULTI
@@ -2009,6 +2004,9 @@ config ARCH_SUPPORTS_KEXEC_BZIMAGE_VERIFY_SIG
 
 config ARCH_SUPPORTS_KEXEC_JUMP
 	def_bool y
+
+config ARCH_SUPPORTS_KEXEC_HANDOVER
+	def_bool X86_64
 
 config ARCH_SUPPORTS_CRASH_DUMP
 	def_bool X86_64 || (X86_32 && HIGHMEM)
